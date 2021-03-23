@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+  border: 4px solid black;
+}
+
+.playbutton{
+  width: 140px;
+  height: 140px;
+  background-image: url("assets/play_button.png");
+  background-size:100% 100%;
+  outline: none;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0px;
+}
