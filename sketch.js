@@ -87,6 +87,13 @@ function draw() {
     }
 
     if (
+      !egg.isTouching(basket2) &&
+      currentBasket === "basket2" &&
+      egg.velocityY >= 0
+    ) {
+    }
+
+    if (
       egg.isTouching(basket3) &&
       currentBasket === "basket3" &&
       egg.velocityY >= 0
@@ -192,6 +199,22 @@ function draw() {
   }
 }
 
+function gameOver() {
+  swal(
+    {
+      title: `Game Over!!!`,
+      imageUrl: "",
+      imageSize: "100x100",
+      confirmButtonText: "Play Again"
+    },
+    function(isConfirm) {
+      if (isConfirm) {
+        window.location.reload();
+      }
+    }
+  );
+}
+
 function showAlert() {
   swal(
     {
@@ -213,13 +236,13 @@ function createBaskets() {
   basket1 = createSprite(width / 2, height - 100);
   basket1.addImage("basket1", basketImg);
   basket1.setCollider("rectangle", 0, -5, 30, 20);
-  basket1.debug = true;
+  // basket1.debug = true;
   basket1.scale = 0.9;
 
   basket2 = createSprite(width / 2, height / 2);
   basket2.addImage("basket2", basketImg);
   basket2.setCollider("rectangle", 0, -5, 30, 20);
-  basket2.debug = true;
+  // basket2.debug = true;
   basket2.scale = 0.9;
 
   basket3 = createSprite(width / 2, height / 2 - 300);
