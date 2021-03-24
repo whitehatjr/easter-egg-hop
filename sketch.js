@@ -89,8 +89,9 @@ function draw() {
     if (
       !egg.isTouching(basket2) &&
       currentBasket === "basket2" &&
-      egg.velocityY >= 0
+      egg.velocityY > 3
     ) {
+      gameOver();
     }
 
     if (
@@ -117,6 +118,14 @@ function draw() {
     }
 
     if (
+      !egg.isTouching(basket3) &&
+      currentBasket === "basket3" &&
+      egg.velocityY > 3
+    ) {
+      gameOver();
+    }
+
+    if (
       egg.isTouching(basket4) &&
       currentBasket === "basket4" &&
       egg.velocityY >= 0
@@ -130,6 +139,14 @@ function draw() {
 
       egg.position.x = basket4.position.x;
       egg.position.y = basket4.position.y - 30;
+    }
+
+    if (
+      !egg.isTouching(basket4) &&
+      currentBasket === "basket4" &&
+      egg.velocityY > 3
+    ) {
+      gameOver();
     }
 
     if (
@@ -155,6 +172,14 @@ function draw() {
     }
 
     if (
+      !egg.isTouching(basket5) &&
+      currentBasket === "basket5" &&
+      egg.velocityY > 3
+    ) {
+      gameOver();
+    }
+
+    if (
       egg.isTouching(basket6) &&
       currentBasket === "basket6" &&
       egg.velocityY >= 0
@@ -168,6 +193,14 @@ function draw() {
 
       egg.position.x = basket6.position.x;
       egg.position.y = basket6.position.y - 30;
+    }
+
+    if (
+      !egg.isTouching(basket6) &&
+      currentBasket === "basket6" &&
+      egg.velocityY > 3
+    ) {
+      gameOver();
     }
 
     if (basket2.position.x >= width - 80 || basket2.position.x <= 80) {
@@ -203,8 +236,10 @@ function gameOver() {
   swal(
     {
       title: `Game Over!!!`,
-      imageUrl: "",
-      imageSize: "100x100",
+      text: "Thanks for playing!!",
+      imageUrl:
+        "https://raw.githubusercontent.com/whitehatjr/hoping-easter-egg/main/assets/game_over.png",
+      imageSize: "150x150",
       confirmButtonText: "Play Again"
     },
     function(isConfirm) {
