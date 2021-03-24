@@ -193,6 +193,7 @@ function draw() {
 
       egg.position.x = basket6.position.x;
       egg.position.y = basket6.position.y - 30;
+      showAlert();
     }
 
     if (
