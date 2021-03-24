@@ -45,9 +45,9 @@ function draw() {
     mainbg = mainbg2;
     isInitialStage = false;
     basket2.velocityX = -3;
-    basket3.velocityX = 3;
-    // basket4.velocityX = 3;
-    // basket4.velocityY = -3;
+    basket3.velocityX = 5;
+    basket5.velocityX = -2;
+    basket6.velocityX = 15;
   });
 
   if (gameState === "play") {
@@ -119,6 +119,12 @@ function draw() {
 
       egg.position.x = basket5.position.x;
       egg.position.y = basket5.position.y - 30;
+      for (var i = 0; i < basketGroup.length; i++) {
+        basketGroup.get(i).velocityY = 3;
+        if (basket5.position.y > 500) {
+          basketGroup.get(i).velocityY = 0;
+        }
+      }
     }
 
     if (egg.isTouching(basket6) && currentBasket === "basket6") {
@@ -140,14 +146,14 @@ function draw() {
     if (basket3.position.x >= width - 80 || basket3.position.x <= 80) {
       basket3.velocityX *= -1;
     }
+
+    if (basket5.position.x >= width - 80 || basket5.position.x <= 80) {
+      basket5.velocityX *= -1;
+    }
     //
-    // if (basket2.position.x >= width - 80 || basket2.position.x <= 80) {
-    //   basket2.velocityX *= -1;
-    // }
-    //
-    // if (basket2.position.x >= width - 80 || basket2.position.x <= 80) {
-    //   basket2.velocityX *= -1;
-    // }
+    if (basket6.position.x >= width - 80 || basket6.position.x <= 80) {
+      basket6.velocityX *= -1;
+    }
 
     drawSprites();
     // Score;
@@ -165,34 +171,34 @@ function draw() {
 function createBaskets() {
   basket1 = createSprite(width / 2, height - 100);
   basket1.addImage("basket1", basketImg);
-  basket1.setCollider("rectangle", 0, 15, 60, 30);
-  // basket1.debug = true;
+  basket1.setCollider("rectangle", 0, 15, 10, 30);
+  basket1.debug = true;
   basket1.scale = 0.9;
 
   basket2 = createSprite(width / 2, height / 2);
   basket2.addImage("basket2", basketImg);
-  basket2.setCollider("rectangle", 0, 15, 60, 30);
-  // basket2.debug = true;
+  basket2.setCollider("rectangle", 0, 15, 10, 30);
+  basket2.debug = true;
   basket2.scale = 0.9;
 
   basket3 = createSprite(width / 2, height / 2 - 300);
   basket3.addImage("basket3", basketImg);
-  basket3.setCollider("rectangle", 0, 15, 60, 30);
+  basket3.setCollider("rectangle", 0, 15, 10, 30);
   basket3.scale = 0.9;
 
   basket4 = createSprite(width / 2, height / 2 - 600);
   basket4.addImage("basket3", basketImg);
-  basket4.setCollider("rectangle", 0, 15, 60, 30);
+  basket4.setCollider("rectangle", 0, 15, 10, 30);
   basket4.scale = 0.9;
 
   basket5 = createSprite(width / 2, height / 2 - 900);
   basket5.addImage("basket3", basketImg);
-  basket5.setCollider("rectangle", 0, 15, 60, 30);
+  basket5.setCollider("rectangle", 0, 15, 10, 30);
   basket5.scale = 0.9;
 
   basket6 = createSprite(width / 2, height / 2 - 1200);
   basket6.addImage("basket3", basketImg);
-  basket6.setCollider("rectangle", 0, 15, 60, 30);
+  basket6.setCollider("rectangle", 0, 15, 10, 30);
   basket6.scale = 0.9;
 
   basketGroup.add(basket1);
