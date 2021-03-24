@@ -189,13 +189,13 @@ function createBaskets() {
   basket1 = createSprite(width / 2, height - 100);
   basket1.addImage("basket1", basketImg);
   basket1.setCollider("rectangle", 0, 15, 10, 30);
-  basket1.debug = true;
+  // basket1.debug = true;
   basket1.scale = 0.9;
 
   basket2 = createSprite(width / 2, height / 2);
   basket2.addImage("basket2", basketImg);
   basket2.setCollider("rectangle", 0, 15, 10, 30);
-  basket2.debug = true;
+  // basket2.debug = true;
   basket2.scale = 0.9;
 
   basket3 = createSprite(width / 2, height / 2 - 300);
