@@ -168,6 +168,23 @@ function draw() {
   }
 }
 
+function showAlert() {
+  swal(
+    {
+      title: `Awesome!${"\n"}Score${"\n"}${score}`,
+      imageUrl:
+        "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png",
+      imageSize: "100x100",
+      confirmButtonText: "Play Again"
+    },
+    function(isConfirm) {
+      if (isConfirm) {
+        window.location.reload();
+      }
+    }
+  );
+}
+
 function createBaskets() {
   basket1 = createSprite(width / 2, height - 100);
   basket1.addImage("basket1", basketImg);

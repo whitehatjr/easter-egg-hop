@@ -17,3 +17,8 @@ canvas {
   object-fit: cover;
   border: 0px;
 }
+
+.swal-icon img{
+  width: 100px;
+  height: 100px;
+}
