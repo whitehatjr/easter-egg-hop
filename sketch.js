@@ -45,21 +45,29 @@ function draw() {
     mainbg = mainbg2;
     isInitialStage = false;
     basket2.velocityX = -3;
-    basket3.velocityX = 5;
-    basket5.velocityX = -2;
-    basket6.velocityX = 15;
+    basket3.velocityX = -3;
+    basket5.velocityX = -3;
+    basket6.velocityX = 6;
   });
 
   if (gameState === "play") {
     egg.velocityY += 0.5;
-    if (egg.isTouching(basket1) && currentBasket === "basket1") {
+    if (
+      egg.isTouching(basket1) &&
+      currentBasket === "basket1" &&
+      egg.velocityY >= 0
+    ) {
       isInitialStage = true;
       egg.velocityY = 0;
       egg.position.x = basket1.position.x;
       egg.position.y = basket1.position.y - 30;
     }
 
-    if (egg.isTouching(basket2) && currentBasket === "basket2") {
+    if (
+      egg.isTouching(basket2) &&
+      currentBasket === "basket2" &&
+      egg.velocityY >= 0
+    ) {
       egg.velocityY = 0;
       if (isCollided) {
         isCollided = false;
@@ -78,7 +86,11 @@ function draw() {
       }
     }
 
-    if (egg.isTouching(basket3) && currentBasket === "basket3") {
+    if (
+      egg.isTouching(basket3) &&
+      currentBasket === "basket3" &&
+      egg.velocityY >= 0
+    ) {
       egg.velocityY = 0;
       if (isCollided) {
         isCollided = false;
@@ -97,7 +109,11 @@ function draw() {
       }
     }
 
-    if (egg.isTouching(basket4) && currentBasket === "basket4") {
+    if (
+      egg.isTouching(basket4) &&
+      currentBasket === "basket4" &&
+      egg.velocityY >= 0
+    ) {
       egg.velocityY = 0;
       if (isCollided) {
         isCollided = false;
@@ -109,7 +125,11 @@ function draw() {
       egg.position.y = basket4.position.y - 30;
     }
 
-    if (egg.isTouching(basket5) && currentBasket === "basket5") {
+    if (
+      egg.isTouching(basket5) &&
+      currentBasket === "basket5" &&
+      egg.velocityY >= 0
+    ) {
       egg.velocityY = 0;
       if (isCollided) {
         isCollided = false;
@@ -127,7 +147,11 @@ function draw() {
       }
     }
 
-    if (egg.isTouching(basket6) && currentBasket === "basket6") {
+    if (
+      egg.isTouching(basket6) &&
+      currentBasket === "basket6" &&
+      egg.velocityY >= 0
+    ) {
       egg.velocityY = 0;
       if (isCollided) {
         isCollided = false;
@@ -161,7 +185,7 @@ function draw() {
     rect(10, 10, 100, 40, 30, 30, 30, 30);
     fill(255, 255, 255);
     textSize(22);
-    text(`Score ${score}`, 18, 40);
+    text(`Score: ${score}`, 18, 40);
     if (bgSprite.y > 1000) {
       bgSprite.y = bgSprite.height / 2;
     }
@@ -188,34 +212,34 @@ function showAlert() {
 function createBaskets() {
   basket1 = createSprite(width / 2, height - 100);
   basket1.addImage("basket1", basketImg);
-  basket1.setCollider("rectangle", 0, 15, 10, 30);
-  // basket1.debug = true;
+  basket1.setCollider("rectangle", 0, -5, 30, 20);
+  basket1.debug = true;
   basket1.scale = 0.9;
 
   basket2 = createSprite(width / 2, height / 2);
   basket2.addImage("basket2", basketImg);
-  basket2.setCollider("rectangle", 0, 15, 10, 30);
-  // basket2.debug = true;
+  basket2.setCollider("rectangle", 0, -5, 30, 20);
+  basket2.debug = true;
   basket2.scale = 0.9;
 
   basket3 = createSprite(width / 2, height / 2 - 300);
   basket3.addImage("basket3", basketImg);
-  basket3.setCollider("rectangle", 0, 15, 10, 30);
+  basket3.setCollider("rectangle", 0, -5, 30, 20);
   basket3.scale = 0.9;
 
   basket4 = createSprite(width / 2, height / 2 - 600);
   basket4.addImage("basket3", basketImg);
-  basket4.setCollider("rectangle", 0, 15, 10, 30);
+  basket4.setCollider("rectangle", 0, -5, 30, 20);
   basket4.scale = 0.9;
 
   basket5 = createSprite(width / 2, height / 2 - 900);
   basket5.addImage("basket3", basketImg);
-  basket5.setCollider("rectangle", 0, 15, 10, 30);
+  basket5.setCollider("rectangle", 0, -5, 30, 20);
   basket5.scale = 0.9;
 
   basket6 = createSprite(width / 2, height / 2 - 1200);
   basket6.addImage("basket3", basketImg);
-  basket6.setCollider("rectangle", 0, 15, 10, 30);
+  basket6.setCollider("rectangle", 0, -5, 30, 20);
   basket6.scale = 0.9;
 
   basketGroup.add(basket1);
