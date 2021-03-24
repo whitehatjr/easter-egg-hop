@@ -8,9 +8,11 @@ var isCollided = false;
 var isInitialStage = true;
 
 function preload() {
+  var eggs = ["./assets/egg1.png", "./assets/egg2.png", "./assets/egg2.png"];
+  const random = Math.floor(Math.random() * eggs.length);
   mainbg = loadImage("./assets/bg1.png");
   bgImg = loadImage("./assets/bg.png");
-  eggImg = loadImage("./assets/egg1.png");
+  eggImg = loadImage(eggs[random]);
   basketImg = loadImage("./assets/basket.png");
   mainbg2 = loadImage("./assets/bg2.png");
 }
